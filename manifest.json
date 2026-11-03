@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.nikhill-666.divider",
+  "name": "Smart Divider",
+  "version": "0.2.0",
+  "author": "nikhill-666",
+  "license": "MIT",
+  "description": "A thin vertical rule that separates groups of chips; right-click one to add another.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "divider",
+    "description": "A rule between groups of chips. Right-click to duplicate, drag to move, drag off the bar to remove.",
+    "category": "Layout",
+    "aliases": ["divider", "separator", "rule", "gap"],
+    "allowMultiple": true,
+    "defaultSection": "left"
+  }
+}
