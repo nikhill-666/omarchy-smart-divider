@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "io.github.nikhill-666.divider",
   "name": "Smart Divider",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "nikhill-666",
   "license": "MIT",
-  "description": "A thin vertical rule that separates groups of chips; right-click one to add another.",
+  "description": "A theme-aware divider between groups of chips, with five shapes, adjustable size and colour; right-click one to style it or add another.",
   "kinds": [
     "bar-widget"
   ],
@@ -14,10 +14,65 @@
   },
   "barWidget": {
     "displayName": "divider",
-    "description": "A rule between groups of chips. Right-click to duplicate, drag to move, drag off the bar to remove.",
+    "description": "A divider between groups of chips. Right-click to pick a shape, size and colour or duplicate, drag to move, drag off the bar to remove.",
     "category": "Layout",
-    "aliases": ["divider", "separator", "rule", "gap"],
+    "aliases": ["divider", "separator", "rule", "gap", "dot", "pill"],
     "allowMultiple": true,
-    "defaultSection": "left"
+    "defaultSection": "left",
+    "defaults": {
+      "shape": "line",
+      "width": 8,
+      "height": 62,
+      "color": "theme"
+    },
+    "schema": [
+      {
+        "key": "shape",
+        "type": "enum",
+        "label": "Divider shape",
+        "description": "Line, dot, oval, square or rounded square. Each divider keeps its own shape; right-clicking one on the bar is the usual way to change it.",
+        "options": [
+          { "value": "line", "label": "Line" },
+          { "value": "dot", "label": "Dot" },
+          { "value": "oval", "label": "Oval" },
+          { "value": "square", "label": "Square" },
+          { "value": "rounded", "label": "Rounded square" }
+        ],
+        "defaultValue": "line"
+      },
+      {
+        "key": "width",
+        "type": "integer",
+        "label": "Width (% of bar height)",
+        "description": "How thick the mark is. 8 is the original thin rule.",
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 8
+      },
+      {
+        "key": "height",
+        "type": "integer",
+        "label": "Height (% of bar height)",
+        "description": "How long the mark is. 62 is the original rule; 100 fills the bar.",
+        "min": 6,
+        "max": 100,
+        "step": 1,
+        "defaultValue": 62
+      },
+      {
+        "key": "color",
+        "type": "enum",
+        "label": "Colour",
+        "description": "Theme colour, the accent, the bar foreground, or the urgent tone. A custom #rrggbb can be typed in the right-click menu.",
+        "options": [
+          { "value": "theme", "label": "Theme" },
+          { "value": "accent", "label": "Accent" },
+          { "value": "foreground", "label": "Foreground" },
+          { "value": "urgent", "label": "Urgent" }
+        ],
+        "defaultValue": "theme"
+      }
+    ]
   }
 }
